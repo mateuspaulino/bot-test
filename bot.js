@@ -30,8 +30,8 @@ const stream = T.stream('statuses/filter', { track: ['trueetbot.de', 'trueet'] }
 
     // console.log('data', result.data);
 
-    let labelsCheck = ["@Lgustavo_19", "Corinthiano"];
-    let labelsresponse = "Olá, ###. É falso que @Lgustavo_19 seja Corinthiano. Fui alertado pela galera do Trueet e a informação verdadeira está aqui: www.oglobo.globo.com.br/. Comece a usar o Trueet em www.trueet.com.br e não caia mais nessa!";
+    let labelsCheck = ["@lgjuliao foi visto no Hackathon usando uma camisa do Corinthians!", "Cara, o @lgjuliao foi visto no Hackathon usando uma camisa do Corinthians!"];
+    let labelsresponse = "Olá, ###. É falso que @Lgustavo_19 estava usando uma camisa do Corinthians. Fui alertado pela galera do Trueet e a informação verdadeira está aqui: glo.bo/timeCoracao. Comece a usar o Trueet em trueet.com.br e não caia mais nessa!";
 
     T.get('friends/list', { screen_name: 'lgjuliao' },  function (err, data, response) {
         // let idTeste = data.ids[2];
@@ -77,20 +77,25 @@ const stream = T.stream('statuses/filter', { track: ['trueetbot.de', 'trueet'] }
     });
 
     function checkVeracity(str, labelsCheck, sizeLabels, mention){      
+        // let counter = 0;
         let counter = 0;
         labelsCheck.forEach(function (item, index, array) {
-            // console.log(item);
-            if(str.indexOf(item)!==-1){
+            // model by tags
+            // if(str.indexOf(item)!==-1){
+            //     counter++;
+            // }
+            // model by quotes
+            if(str===item){
                 counter++;
             }
         });
-        if(counter > (sizeLabels/2)){
+        // model by quote
+        if(counter == 1){
             return true;
         }
-        // else if(counter == (sizeLabels/2)){
-        //     return "Pode ser Fake News";
-        // }else{
-        //     return "Não parece ser Fake News";
+        // model by tags
+        // if(counter > (sizeLabels/2)){
+        //     return true;
         // }
     }
 

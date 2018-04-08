@@ -31,7 +31,7 @@ const stream = T.stream('statuses/filter', { track: ['trueetbot.de', 'trueet'] }
     // console.log('data', result.data);
 
     let labelsCheck = ["@lgjuliao foi visto no Hackathon usando uma camisa do Corinthians!", "Cara, o @lgjuliao foi visto no Hackathon usando uma camisa do Corinthians!"];
-    let labelsresponse = "Olá, ###. É falso que @Lgustavo_19 estava usando uma camisa do Corinthians. Fui alertado pela galera do Trueet e a informação verdadeira está aqui: glo.bo/timeCoracao. Comece a usar o Trueet em trueet.com.br e não caia mais nessa!";
+    let labelsresponse = "Olá, ###. É falso que @lgjuliao estava usando uma camisa do Corinthians. Fui alertado pela galera do Trueet e a informação verdadeira está aqui: glo.bo/timeCoracao. Comece a usar o Trueet em trueet.com.br e não caia mais nessa!";
 
     T.get('friends/list', { screen_name: 'lgjuliao' },  function (err, data, response) {
         // let idTeste = data.ids[2];
